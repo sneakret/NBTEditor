@@ -19,11 +19,16 @@
 
 package com.goncalomb.bukkit.nbteditor.commands;
 
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
+import com.goncalomb.bukkit.mylib.command.MyCommand;
+import com.goncalomb.bukkit.mylib.command.MyCommandException;
+import com.goncalomb.bukkit.mylib.command.MyCommandManager;
+import com.goncalomb.bukkit.mylib.reflect.BukkitReflect;
+import com.goncalomb.bukkit.mylib.reflect.NBTTagCompound;
+import com.goncalomb.bukkit.mylib.reflect.NBTUtils;
+import com.goncalomb.bukkit.mylib.utils.Utils;
+import com.goncalomb.bukkit.mylib.utils.UtilsMc;
+import com.goncalomb.bukkit.nbteditor.nbt.attributes.AttributeType;
+import com.goncalomb.bukkit.nbteditor.nbt.attributes.ItemModifier;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -31,15 +36,10 @@ import org.bukkit.block.CommandBlock;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import com.goncalomb.bukkit.mylib.command.MyCommand;
-import com.goncalomb.bukkit.mylib.command.MyCommandException;
-import com.goncalomb.bukkit.mylib.command.MyCommandManager;
-import com.goncalomb.bukkit.mylib.reflect.BukkitReflect;
-import com.goncalomb.bukkit.mylib.reflect.NBTUtils;
-import com.goncalomb.bukkit.mylib.utils.Utils;
-import com.goncalomb.bukkit.mylib.utils.UtilsMc;
-import com.goncalomb.bukkit.nbteditor.nbt.attributes.AttributeType;
-import com.goncalomb.bukkit.nbteditor.nbt.attributes.ItemModifier;
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class CommandNBTItem extends MyCommand {
 	
