@@ -163,7 +163,7 @@ public class CommandNBTItem extends MyCommand {
 		if (args.length == 1) {
 			return Utils.getElementsWithPrefixGeneric(Arrays.asList(AttributeType.values()), args[0], true);
 		} else if (args.length == 2) {
-			return Utils.getElementsWithPrefix(Arrays.asList(new String[] { "0", "1", "2" }), args[1]);
+			return Utils.getElementsWithPrefix(Arrays.asList("0", "1", "2"), args[1]);
 		}
 		return null;
 	}
