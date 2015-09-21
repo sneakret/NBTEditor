@@ -62,7 +62,25 @@ public class CommandNBTItem extends MyCommand {
 		sender.sendMessage(args.length == 0 ? "§aItem name removed." : "§aItem renamed.");
 		return true;
 	}
-	
+
+	@Command(args = "unbreakable", type = CommandType.PLAYER_ONLY)
+	public boolean unbreakableCommand(CommandSender sender, String[] args) throws MyCommandException {
+		HandItemWrapper.Item item = new HandItemWrapper.Item((Player) sender);
+		NBTTagCompound tag = NBTUtils.getItemStackTag(item.item);
+		boolean isUnbreakable = tag.hasKey("Unbreakable");
+		if (isUnbreakable)
+		{
+			tag.remove("Unbreakable");
+		} else
+		{
+			tag.setInt("Unbreakable", 1);
+		}
+		NBTUtils.setItemStackTag(item.item, tag);
+		isUnbreakable = tag.hasKey("Unbreakable");
+		sender.sendMessage("§aItem " + (isUnbreakable ? "is " : "is not") + " unbreakable.");
+		return true;
+	}
+
 	@Command(args = "lore add", type = CommandType.PLAYER_ONLY, minargs = 1, maxargs = Integer.MAX_VALUE, usage = "<lore ...>")
 	public boolean lore_addCommand(CommandSender sender, String[] args) throws MyCommandException {
 		HandItemWrapper.Item item = new HandItemWrapper.Item((Player) sender);
